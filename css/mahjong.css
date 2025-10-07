@@ -1,0 +1,103 @@
+<style>
+
+.no-grid, .no-grid th, .no-grid td {
+    border: 1px solid #ccc;
+}
+
+.button {
+  border: 1px solid #ccc;
+  color: black;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 0px 3px;
+  cursor: pointer;
+}
+
+.big-button {
+    padding: 10px 40px;
+    font-size: 38px;
+    width: 200px;
+    height: 80px;
+    color: white;
+    background: green;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.roundButton {
+    border-radius: 4px;
+}
+
+.selector {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    width: 90px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 35%;
+  text-align: center;
+}
+
+.stat_table {
+  border-collapse: collapse;
+  width: 35%;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  text-align: right;
+  padding: 5px;
+
+}
+td {
+  text-align: right;
+  padding: 5px;
+}
+
+#control_cell {
+    text-align: center;
+    width: 50px;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc; /* 2px width, solid style, light gray color */
+  border-radius: 5px; /* Optional: adds rounded corners */
+  width: 80px;
+  padding: 2px; /* Optional: adds internal spacing */
+}
+
+/* Style for odd-numbered rows */
+.stat_table tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Style for even-numbered rows */
+.stat_table tr:nth-child(even) {
+  background-color: #ffffff; /* White background */
+}
+
+.resource_cell {
+    text-align: right;
+    width: 150px;
+}
+
+#control_dev {
+    background: #FFDEAD;
+}
+
+.control_cell {
+    background: #FFDEAD;
+    width: 100px;
+}
+
+th {
+  background-color: #B0C4DE;
+}
+
+</style>

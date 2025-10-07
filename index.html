@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mahjong</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/mahjong.css">
+    <script src="./js/mahjong.js"></script>
+</head>
+<body>
+<p id="val"></p>
+    <div id="customPrompt" style="display:none; border: 1px solid black; padding: 20px; background-color: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+        <h2>Enter Players </h2>
+        <label for="nameInput1">Player 1:</label>
+        <input type="text" id="nameInput1"><br><br>
+        <label for="nameInput2">Player 2:</label>
+        <input type="text" id="nameInput2"><br><br>
+        <label for="nameInput3">Player 3:</label>
+        <input type="text" id="nameInput3"><br><br>
+        <label for="nameInput4">Player 4:</label>
+        <input type="text" id="nameInput4"><br><br>
+
+        <button id="submitBtn" class="big-button">開抬</button>
+
+        <div style="color:red">
+            <p>Once you click '開抬', leaving the page will erase all results.<br/>
+            Click cancel if you want to preserve your results when you see this:
+            </p>
+            <img src="./assets/leavePageDialog.PNG">
+        </div>
+    </div>
+    <table  class="no-grid">
+        <thead>
+            <tr>
+                <th colspan="5" style="text-align:center">食糊</th>
+                <th style="border-left: 1px solid; border-left-color: #A9A9A9" class="resource_cell">姓名</th>
+                <th class="resource_cell">總數</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="background-color:#FFDEAD;font-weight: bold; text-align:left" id="date">9/1/2025</td>
+                <td style="background-color:#FFDEAD;" colspan="4"></td>
+                <td style="text-align: left; border-left: 1px solid; border-left-color: #A9A9A9">
+                    <label id="Player1"></label>
+                </td>
+                <td id="player1_score">0</td>
+            </tr>
+            <tr>
+                <td style="background-color:#FFDEAD;text-align:left;width=50px;">食糊人</td>
+                <td class="control_cell">
+                    <label for="食糊人"></label> <!-- to please the editor -->
+                    <select id="食糊人" class="selector">
+                    </select>
+                </td>
+                <td style="background-color:#FFDEAD;text-align:left;width=50px;" class="control_cell">出冲人</td>
+                <td class="control_cell">
+                    <label for="出冲人"></label> <!-- to please the editor -->
+                    <select id="出冲人" class="selector">
+                    </select>
+                </td>
+                <td style="background-color:#FFDEAD;"></td>
+                <td style="background-color:#DCDCDC; text-align:left; border-left: 1px solid; border-left-color: #A9A9A9">
+                    <label id="Player2"></label>
+                </td>
+                <td style="background-color:#DCDCDC" id="player2_score">0</td>
+            </tr>
+            <tr>
+                <td style="background-color:#FFDEAD;text-align:left;width=50px;" class="control_cell">食乜糊</td>
+                <td class="control_cell">
+                    <label for="食乜糊"></label> <!-- to please the editor -->
+                    <select id="食乜糊" class="selector" onclick="update食乜糊Selector()">
+                        <option value="自摸">自摸</option>
+                        <option value="人打">人打</option>
+                        <option value="包自摸">包自摸</option>
+                        <option value="自摸詐糊">自摸詐糊</option>
+                        <option value="出冲詐糊">出冲詐糊</option>
+                    </select>
+                </td>
+                <td style="background-color:#FFDEAD;" colspan="3"></td>
+                <td style="text-align: left; border-left: 1px solid; border-left-color: #A9A9A9">
+                    <label id="Player3"></label>
+                </td>
+                <td id="player3_score">0</td>
+            </tr>
+            <tr>
+                <td style="background-color:#FFDEAD;text-align:left;width=50px;" class="control_cell">食番數</td>
+                <td class="control_cell">
+                    <label for="食番數"></label> <!-- to please the editor -->
+                    <select id="食番數" class="selector">
+                    </select>
+                </td>
+                <td style="background-color:#FFDEAD;" colspan="3">
+                    <button style="width:50px;background:#90EE90" id="update" class="button roundButton" onclick="handleUpdate()">Update</button>
+                    <button style="width:50px;background:#FFFFE0" id="clear" class="button roundButton" onclick="handleClear()">Clear</button>
+                    <button style="width:50px;background:#F08080" id="undo" class="button roundButton" onclick="handleUndo()">Undo</button>
+                </td>
+                <td style="background-color:#DCDCDC; text-align:left; border-left: 1px solid; border-left-color: #A9A9A9">
+                    <label id="Player4"></label>
+                </td>
+                <td  style="background-color:#DCDCDC" id="player4_score">0</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; color: red" colspan="7" id="alert"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <table class="stat_table" id="stat_table">
+        <thead>
+        <tr>
+            <th id="stat_header_player1">Player 1</th>
+            <th id="stat_header_player2">Player 2</th>
+            <th id="stat_header_player3">Player 3</th>
+            <th id="stat_header_player4">Player 4</th>
+            <th>食糊人</th>
+            <th>食乜糊</th>
+            <th>食番數</th>
+            <th>出冲人</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
