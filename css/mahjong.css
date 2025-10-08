@@ -45,14 +45,18 @@
     width: 90px;
 }
 
+.table-container {
+  overflow-x: auto;
+}
+
 table {
   border-collapse: collapse;
-  width: 50%; // default for smaller screens
+  width: 100%; // default for smaller screens
   max-width: 100%;
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     table {
         width: 800px // Fixed width for larger screen.
         max-width: 100%; // still ensures it does not overflow
@@ -61,7 +65,7 @@ table {
 
 .stat_table {
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
   text-align: center;
   font-size: 14px;
 }
@@ -131,10 +135,6 @@ th {
   height: 400px; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: white; /* Fallback color */
-}
-
-.table-container {
-  overflow-x: auto;
 }
 
 </style>
