@@ -3,25 +3,23 @@
 <head>
     <title>Mahjong</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/mahjong.css">
     <script src="./js/mahjong.js"></script>
 </head>
 <body>
 <p id="val"></p>
-<!--
-    <div id="customPrompt" style="display:none; border: 1px solid black; padding: 20px; background-color: white; position: fixed; top: 50%; left: 20%; transform: translate(-50%, -50%); z-index: 1000;">
--->
     <div id="customPrompt" class="modal">
         <div class="float-left-child">
             <h2>Enter Names and click the green "開抬" button </h2>
             <label for="nameInput1">Player 1:</label>
-            <input type="text" id="nameInput1"><br><br>
+            <input type="text" id="nameInput1"><br>
             <label for="nameInput2">Player 2:</label>
-            <input type="text" id="nameInput2"><br><br>
+            <input type="text" id="nameInput2"><br>
             <label for="nameInput3">Player 3:</label>
-            <input type="text" id="nameInput3"><button id="submitBtn" class="big-button right-aligned">開抬</button><br><br>
+            <input type="text" id="nameInput3"><button id="submitBtn" class="big-button right-aligned">開抬</button><br>
             <label for="nameInput4">Player 4:</label>
-            <input type="text" id="nameInput4"><br><br>
+            <input type="text" id="nameInput4"><br>
         </div>
 
         <div style="color:red" class="float-down-child">
@@ -32,6 +30,7 @@
         </div>
 
     </div>
+    <div class="table-container">
     <table  class="no-grid">
         <thead>
             <tr>
@@ -125,5 +124,6 @@
         <tbody>
         </tbody>
     </table>
+    </div>
 </body>
 </html>
