@@ -9,6 +9,9 @@ var statTable;
 
 // "番数": [出冲,自摸,包自摸]
 const 番數Map = new Map([
+    ['3', [32, 16, 48]],
+    ['4', [64, 32, 96]],
+    ['5', [96, 48, 144]],
     ['6', [128,64,192]],
     ['7', [192,96,288]],
     ['8', [256,128,384]],
@@ -28,10 +31,6 @@ const 番數MapKeysArray = Array.from(番數Map.keys());
 const 番數MapLastKey = 番數MapKeysArray[番數MapKeysArray.length - 1];
 
 
-//window.addEventListener("beforeunload", function(event) {
-//  event.returnValue = "Write something clever here.."; // Doesn't matter anymore.
-//});
-
 document.addEventListener("DOMContentLoaded", function(){
 
     // initialize globals
@@ -48,6 +47,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // Initialize the game
     document.getElementById("date").innerHTML = (new Date()).toLocaleDateString();
+
+    document.getElementById('openCheatsheet').addEventListener('click', function(){
+        let scoreDialog = document.getElementById("scoreDialog");
+        scoreDialog.showModal();
+    });
+
+    // close button of dialog is pressed
+    document.getElementsByClassName("close")[0].onclick = function() {
+        document.getElementById("scoreDialog").close();
+    }
 
     document.getElementById('submitBtn').addEventListener('click', function() {
         players[0] = document.getElementById('nameInput1').value;
@@ -74,8 +83,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // initialize 番数 selector
     init番数Selector();
+
+    // initialize cheatsheet
+    initCheatSheetTable();
 });
 
+function initCheatSheetTable() {
+    let cheatsheetTable = document.getElementById("cheatSheetTable");
+
+    番數Map.forEach (function(value, key) {
+        var newRow = cheatsheetTable.insertRow();
+        let 番数Cell = newRow.insertCell();
+        let 出冲Cell = newRow.insertCell();
+        let 自摸Cell = newRow.insertCell();
+        let 包自摸Cell = newRow.insertCell();
+
+        番数Cell.textContent = key + " " + "番";
+        出冲Cell.textContent = value[0];
+        自摸Cell.textContent = value[1];
+        包自摸Cell.textContent = value[2];
+    });
+}
 
 //
 function init番数Selector(){

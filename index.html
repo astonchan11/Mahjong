@@ -8,7 +8,20 @@
     <script src="./js/mahjong.js"></script>
 </head>
 <body>
-<p id="val"></p>
+    <dialog id="scoreDialog">
+        <span class="close">&times;</span>
+        <h2>Score Sheet</h2>
+        <table class="cheatSheetTable" id="cheatSheetTable">
+            <thead>
+            <tr>
+                <th>番数</th>
+                <th>出冲</th>
+                <th>自摸</th>
+                <th>包自摸</th>
+            </tr>
+        </table>
+        <p></p>
+    </dialog>
     <div id="customPrompt" class="modal">
         <div class="float-left-child">
             <p>Enter Names and click the green "開抬" button </p>
@@ -42,7 +55,8 @@
         <tbody>
             <tr>
                 <td style="background-color:#FFDEAD;font-weight: bold; text-align:left" id="date">9/1/2025</td>
-                <td style="background-color:#FFDEAD;" colspan="4"></td>
+                <td style="background-color:#FFDEAD;" colspan="3"></td>
+                <td style="background-color:#FFDEAD; cursor:pointer"><span title="Show Scoresheet" id="openCheatsheet">&quest;</span></td>
                 <td style="text-align: left; border-left: 1px solid; border-left-color: #A9A9A9">
                     <label id="Player1"></label>
                 </td>
