@@ -11,7 +11,7 @@
 <p id="val"></p>
     <div id="customPrompt" class="modal">
         <div class="float-left-child">
-            <h2>Enter Names and click the green "開抬" button </h2>
+            <p>Enter Names and click the green "開抬" button </p>
             <label for="nameInput1">Player 1:</label>
             <input type="text" id="nameInput1"><br>
             <label for="nameInput2">Player 2:</label>
@@ -55,13 +55,7 @@
                     <select id="食糊人" class="selector">
                     </select>
                 </td>
-                <td style="background-color:#FFDEAD;text-align:left;width=50px;" class="control_cell">出冲人</td>
-                <td class="control_cell">
-                    <label for="出冲人"></label> <!-- to please the editor -->
-                    <select id="出冲人" class="selector">
-                    </select>
-                </td>
-                <td style="background-color:#FFDEAD;"></td>
+                <td style="background-color:#FFDEAD;" colspan="3"></td>
                 <td style="background-color:#DCDCDC; text-align:left; border-left: 1px solid; border-left-color: #A9A9A9">
                     <label id="Player2"></label>
                 </td>
@@ -79,7 +73,13 @@
                         <option value="出冲詐糊">出冲詐糊</option>
                     </select>
                 </td>
-                <td style="background-color:#FFDEAD;" colspan="3"></td>
+                <td style="background-color:#FFDEAD;text-align:left;width=50px;" class="control_cell">出冲人</td>
+                <td class="control_cell">
+                    <label for="出冲人"></label> <!-- to please the editor -->
+                    <select id="出冲人" class="selector">
+                    </select>
+                </td>
+                <td style="background-color:#FFDEAD;"></td>
                 <td style="text-align: left; border-left: 1px solid; border-left-color: #A9A9A9">
                     <label id="Player3"></label>
                 </td>
@@ -111,6 +111,7 @@
     <table class="stat_table" id="stat_table">
         <thead>
         <tr>
+            <th>時間</th>
             <th id="stat_header_player1">Player 1</th>
             <th id="stat_header_player2">Player 2</th>
             <th id="stat_header_player3">Player 3</th>

@@ -204,10 +204,22 @@ function selectorsValidator() {
     return true;
 }
 
-function appendNewTableRow(scores, 食糊人, 食乜糊, 食番數, 出冲人) {
+function getCurrentTimeHHMM() {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
 
-    var newRow = document.createElement("tr");
+    hours = String(hours).padStart(2, '0');
+    minutes = String(minutes).padStart(2, '0');
 
+    return `${hours}:${minutes}`;
+}
+
+function insertNewTableRow(scores, 食糊人, 食乜糊, 食番數, 出冲人) {
+
+    var newRow = statTable.insertRow(1);
+
+    var newHHMM = document.createElement("td");
     var newColPlayer1Score = document.createElement("td");
     var newColPlayer2Score = document.createElement("td");
     var newColPlayer3Score = document.createElement("td");
@@ -217,6 +229,7 @@ function appendNewTableRow(scores, 食糊人, 食乜糊, 食番數, 出冲人) {
     var newCol番數 = document.createElement("td");
     var newCol出冲人 = document.createElement("td");
 
+    newRow.appendChild(newHHMM);
     newRow.appendChild(newColPlayer1Score);
     newRow.appendChild(newColPlayer2Score);
     newRow.appendChild(newColPlayer3Score);
@@ -226,10 +239,8 @@ function appendNewTableRow(scores, 食糊人, 食乜糊, 食番數, 出冲人) {
     newRow.appendChild(newCol番數);
     newRow.appendChild(newCol出冲人);
 
-    // add row to table
-    statTable.appendChild(newRow);
-
     // add values
+    newHHMM.innerHTML = getCurrentTimeHHMM();
     newColPlayer1Score.innerHTML = scores[0];
     newColPlayer2Score.innerHTML = scores[1];
     newColPlayer3Score.innerHTML = scores[2];
@@ -311,7 +322,7 @@ function handleUpdate() {
                 break;
         }
 
-        appendNewTableRow(playersScore, 食糊人, 食乜糊, 食番數, 出冲人);
+        insertNewTableRow(playersScore, 食糊人, 食乜糊, 食番數, 出冲人);
 
         // clear controls
         handleClear();
@@ -325,13 +336,13 @@ function handleUndo() {
     if (lastRowIndex == 0) {
         alertMessage("Nothing to undo!");
     } else {
-        var lastRow = statTable.rows[lastRowIndex];
+        var firstRow = statTable.rows[1];
 
-        statTable.deleteRow(lastRowIndex);
+        statTable.deleteRow(1); // always delete 1st row
 
         var msg = "Just undo : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-        for (const item of lastRow.cells) {
+        for (const item of firstRow.cells) {
             msg += item.textContent + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
         }
 

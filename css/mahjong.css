@@ -132,10 +132,11 @@ th {
   top: 10px;
   border: 1px solid #000000;
   border-radius: 4px;
-  width: 500px; /* Full width */
-  height: 400px; /* Full height */
+  width: 38%;
+  height: 70%;
   overflow: auto; /* Enable scroll if needed */
   background-color: white; /* Fallback color */
+  font-weight: bold;
 }
 
 </style>
