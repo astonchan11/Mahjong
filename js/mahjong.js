@@ -392,7 +392,7 @@ function updateScores() {
     players_scoreId.forEach((element, index) => {
         sum = 0;
         for (var i = 1; i < statTable.rows.length; i++) {
-            var cell = statTable.rows[i].cells[index];
+            var cell = statTable.rows[i].cells[index+1]; // 0th column is the time
             var value = parseInt(cell.textContent);
 
             if (!isNaN(value)) {
