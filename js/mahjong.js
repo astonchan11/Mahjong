@@ -119,6 +119,8 @@ function init番数Selector(){
 
     // nothing is selected after update
     食番數Selector.selectedIndex = -1;
+
+    update食番數Selector(食番數Selector);
 }
 
 function setup食糊人Selector(){
@@ -145,6 +147,27 @@ function setupStatTableHeader(){
     });
 }
 
+function update食番數Selector(e){
+    var selected食番數 = 食番數Selector.value;
+    if (selected食番數 != "") {
+        document.getElementById("hintTitle出冲").innerHTML="出冲";
+        document.getElementById("hintTitle自摸").innerHTML="自摸";
+        document.getElementById("hintTitle包自摸").innerHTML="包自摸";
+
+        var 食番數 = 食番數Selector.value;
+        var 幾多番Tuple = 番數Map.get(食番數); // [出冲,自摸,包自摸]
+        document.getElementById("hint出冲").innerHTML=幾多番Tuple[0];
+        document.getElementById("hint自摸").innerHTML=幾多番Tuple[1];
+        document.getElementById("hint包自摸").innerHTML=幾多番Tuple[2];
+
+    } else {
+        var elements = Array.from(document.getElementsByClassName("hint"));
+        elements.forEach((element, index) => {
+            element.innerHTML = '&nbsp';
+        });
+    }
+}
+
 function update食糊人Selector(e){
     // 出冲人 cannot be the same
 
@@ -163,9 +186,6 @@ function update食糊人Selector(e){
     });
 
     出冲人Selector.selectedIndex = -1;
-}
-
-function update出冲人Selector(食糊人, 食乜糊){
 }
 
 function update食乜糊Selector(e) {
@@ -205,6 +225,7 @@ function handleClear() {
     食乜糊Selector.selectedIndex = -1;
     食番數Selector.selectedIndex = -1;
     alertMessage("");
+    update食番數Selector(食番數Selector);
 }
 
 // Validate selectors before updating
@@ -386,6 +407,7 @@ function alertMessage(msg) {
 
 function updateScores() {
     var sum = 0;
+    
 
     let players_scoreId = ["player1_score", "player2_score", "player3_score", "player4_score"];
 

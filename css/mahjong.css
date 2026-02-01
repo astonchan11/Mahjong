@@ -1,7 +1,7 @@
 <style>
 
 .no-grid, .no-grid th, .no-grid td {
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
 }
 
 .button {
@@ -68,7 +68,7 @@ table {
   width: 100%;
   max-width: 100%;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 th {
@@ -176,5 +176,86 @@ th {
   padding: 4px;
   align: center;
   text-align: center;
+}
+
+
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-color: #f8fafc;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --white: #ffffff;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  padding: 2rem;
+}
+
+/* --- Buttons --- */
+button {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- Comboboxes (Select) --- */
+select {
+  appearance: none;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.625rem 2rem 0.625rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: var(--primary-color);
+  ring: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+/* --- HTML Table --- */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--white);
+  margin-top: 2rem;
+}
+th {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.hint {
+    width: 100px;
+    color: var(--text-muted);
 }
 </style>
